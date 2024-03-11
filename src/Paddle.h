@@ -1,35 +1,27 @@
 #pragma once
 
-class Ball
+class Paddle
 {
 private:
     //Variables
-    float x;
-    float y;
-    int movementSpeed_x;
-    int movementSpeed_y;
-    float radius;
+    float x, y;
+    float width, height;
+    float speed;
 
     //Private Functions
     void initVariables();
     void initShape();
-    
 
-  
 public:
     //Constructor & Destructor
-    Ball();
-    ~Ball();
+    Paddle();
+    ~Paddle();
 
     //Accessors
 
     //Functions
-    void collision();
-    void movement();
-
-    void kickdown();
-
     void Update();
     void Render();
+
 
 };
