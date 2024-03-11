@@ -1,15 +1,15 @@
 #include <raylib.h>
 
-#include "ball.h"
+#include "Ball.h"
 
 
 //Variables
 void Ball::initVariables()
 {
     this->x = GetScreenWidth()/2;
-    y = GetScreenHeight()/2;
-    movementSpeed_x = 5;
-    movementSpeed_y = 5;
+    this->y = GetScreenHeight()/2;
+    movementSpeed_x = 4.f;
+    movementSpeed_y = 4.f;
     radius = 15.f;
 }
 

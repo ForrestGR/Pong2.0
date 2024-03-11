@@ -2,6 +2,8 @@
 
 #include "ball.h"
 #include "Paddle.h"
+#include "CpuPaddle.h"
+#include "Obstacle.h"
 
 class Game
 {
@@ -13,6 +15,8 @@ private:
     //Objects
     Ball ball;
     Paddle player;
+    CpuPaddle cpu;
+    Obstacle obstacle;
 
     //Private Functions
     void initVariables();
@@ -24,9 +28,9 @@ public:
     Game();
     ~Game();
 
-    //Accessors / Getter & Setter
+    //Accessors / Getter 
 
-    //Modifiers
+    //Modifiers / Setter
 
     //Functions
     void run();

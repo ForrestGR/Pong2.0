@@ -4,6 +4,13 @@
 
 int main()
 {
+
+    const int screen_width = 1280;
+    const int screen_height = 800;
+    InitWindow(screen_width, screen_height, "My Pong Game");
+    
+    SetTargetFPS(144);
+
     //Initializie Game Object
     Game game;
 

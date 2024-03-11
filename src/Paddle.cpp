@@ -6,15 +6,12 @@
 //Variables
 void Paddle::initVariables()
 {
-        this->width = 25;
-        height = 120;
-        x = GetScreenWidth() - width - 10;
-        y = 100;
-        speed = 6;
+        this-> width = 25;
+        this-> height = 120;
+        this-> x = GetScreenWidth() - width - 10;
+        this-> y = GetScreenHeight() / 2 - height / 2;
+        speed = 3;
 
-
-    // this-> x = GetScreenWidth() - width - 10;
-    // this-> y = GetScreenHeight() / 2 - height / 2;
 }
 
 void Paddle::initShape()
@@ -33,9 +30,51 @@ Paddle::~Paddle()
 }
 
 
-//Functions
+// Functions
+void Paddle::KeyBoardInputMovement()
+{
+    if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) {
+        y -= speed;
+    }
+    if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) {
+        y += speed;
+    }
+    if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) {
+        x -= speed;
+    }
+    if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) {
+        x += speed;
+    }
+}
+
+void Paddle::LimitMovement()
+{
+    //LimitMovement Top
+    if (y <= 0)      
+    {
+        y = 0;
+    } 
+    //LimitMovement Bottom
+    if (y + height >= GetScreenHeight())
+    {
+        y = GetScreenHeight() - height;
+    }
+    //LimitMovement Right
+    if (x + width >= GetScreenWidth())
+    {
+        x = GetScreenWidth() - width;
+    }
+    //LimitMovement Left
+    if (x <= 0)
+    {
+        x = 0;
+    }
+}
+
 void Paddle::Update()
 {
+    this->KeyBoardInputMovement();
+    this->LimitMovement();
 }
 
 void Paddle::Render()

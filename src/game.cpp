@@ -3,6 +3,7 @@
 #include "game.h"
 #include "ball.h"
 #include "Paddle.h"
+#include "CpuPaddle.h"
 
 
 // Private Functions
@@ -13,10 +14,10 @@ void Game::initVariables()
 
 void Game::initWindow()
 {
-        const int screen_width = 1280;
-        const int screen_height = 800;
-        InitWindow(screen_width, screen_height, "My Pong Game");
-        SetTargetFPS(144);
+        // const int screen_width = 1280;
+        // const int screen_height = 800;
+        // InitWindow(screen_width, screen_height, "My Pong Game");
+        // SetTargetFPS(144);
         
         
 }
@@ -51,6 +52,8 @@ void Game::update()
 {
     this->ball.Update();
     this->player.Update();
+    this->cpu.Update(ball);
+    this->obstacle.update();
 }
 
 void Game::render()
@@ -60,5 +63,8 @@ void Game::render()
 
     this->ball.Render();
     this->player.Render();
+    this->cpu.Render();
+    this->obstacle.Render();
+
 
 }
