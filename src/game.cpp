@@ -24,7 +24,7 @@ void Game::initWindow()
 // Constructor & Destructor
 Game::Game()
 {
-    this->initWindow();
+    // this->initWindow();
 }
 
 Game::~Game()
