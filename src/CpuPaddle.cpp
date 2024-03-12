@@ -37,10 +37,23 @@ void CpuPaddle::CpuAi(float ball_y)
     }
 }
 
+
+void CpuPaddle::CheckCpuBallCollision(Ball& ball)
+{
+    if (CheckCollisionCircleRec(Vector2{ball.GetX(), ball.GetY()}, ball.GetRadius(), Rectangle{this->x, this->y, width, height}))
+    {
+        ball.ReverseSpeedX();
+    }
+}
+
+
+
 void CpuPaddle::Update(Ball& ball)
 {
     this->CpuAi(ball.GetY());
     LimitMovement();
+
+    CheckCpuBallCollision(ball);
 }
 
 // void CpuPaddle::Render()

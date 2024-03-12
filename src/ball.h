@@ -13,9 +13,7 @@ private:
     //Private Functions
     void initVariables();
     void initShape();
-    
 
-  
 public:
     //Constructor & Destructor
     Ball();
@@ -23,12 +21,18 @@ public:
 
     //Accessors / Getter 
     float GetY() const {return y;};
+    float GetX() const {return x;};
+    float GetRadius() const {return radius;};
+    float GetSpeedX() const {return movementSpeed_x;};
+    float GetSpeedY() const {return movementSpeed_y;};
 
     //Modifiers / Setter
+    void ReverseSpeedX() { movementSpeed_x = -movementSpeed_x; }
 
     //Functions
     void collision();
     void movement();
+    void Resetball();
 
     void kickdown();
 

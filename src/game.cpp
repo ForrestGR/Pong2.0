@@ -18,8 +18,6 @@ void Game::initWindow()
         // const int screen_height = 800;
         // InitWindow(screen_width, screen_height, "My Pong Game");
         // SetTargetFPS(144);
-        
-        
 }
 
 
@@ -51,9 +49,9 @@ void Game::run()
 void Game::update()
 {
     this->ball.Update();
-    this->player.Update();
+    this->player.Update(ball);
     this->cpu.Update(ball);
-    this->obstacle.update();
+    this->obstacle.update(ball);
 }
 
 void Game::render()
@@ -65,6 +63,4 @@ void Game::render()
     this->player.Render();
     this->cpu.Render();
     this->obstacle.Render();
-
-
 }

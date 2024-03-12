@@ -15,11 +15,11 @@ public:
     Obstacle();
     ~Obstacle();
 
-
-
     //Functions
     void movement();
 
-    void update();
+    void CheckObstacleBallCollision(Ball& ball);
+
+    void update(Ball& ball);
     //void render();
 };

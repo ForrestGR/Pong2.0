@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Paddle.h"
-#include "ball.h"
 
 class CpuPaddle : public Paddle
 {
@@ -20,6 +19,8 @@ public:
     //Functions
     void CpuAi(float ball_ywert);
 
-    void Update(Ball& ball);
+    void CheckCpuBallCollision(Ball& ball);
+
+    void Update(Ball& ball) override;
     // void Render();
 };

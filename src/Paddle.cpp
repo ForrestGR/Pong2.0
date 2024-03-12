@@ -10,12 +10,12 @@ void Paddle::initVariables()
         this-> height = 120;
         this-> x = GetScreenWidth() - width - 10;
         this-> y = GetScreenHeight() / 2 - height / 2;
-        speed = 3;
-
+        this->speed = 3;
 }
 
 void Paddle::initShape()
 {
+
 }
 
 
@@ -71,10 +71,20 @@ void Paddle::LimitMovement()
     }
 }
 
-void Paddle::Update()
+void Paddle::CheckPlayerBallCollision(Ball& ball)
+{
+    if (CheckCollisionCircleRec(Vector2{ball.GetX(), ball.GetY()}, ball.GetRadius(), Rectangle{x, y, width, height}))
+    {
+        ball.ReverseSpeedX();
+    }
+}
+
+void Paddle::Update(Ball& ball)
 {
     this->KeyBoardInputMovement();
     this->LimitMovement();
+
+    this->CheckPlayerBallCollision(ball);
 }
 
 void Paddle::Render()

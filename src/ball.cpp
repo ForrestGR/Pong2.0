@@ -41,17 +41,27 @@ void Ball::collision()
     if (y + radius >= GetScreenHeight() || y - radius <= 0)
         movementSpeed_y *= -1;
     
-    
-    if (x + radius >= GetScreenWidth() || x - radius <= 0)
-        movementSpeed_x *= -1;
-
-
+    //Collision Left
+    if (x - radius <= 0)
+    {
+        Resetball();
+    //Collision Right
+    } else if (x + radius >= GetScreenWidth())
+    {
+        Resetball();
+    }
 }
 
 void Ball::movement()
 {
     x += movementSpeed_x;
     y += movementSpeed_y;
+}
+
+void Ball::Resetball()
+{
+    x = GetScreenWidth() / 2;
+    y = GetScreenHeight() / 2;
 }
 
 void Ball::kickdown()

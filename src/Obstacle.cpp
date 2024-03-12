@@ -24,7 +24,6 @@ Obstacle::~Obstacle()
 {
 }
 
-
 // Functions
 void Obstacle::movement()
 {
@@ -39,8 +38,16 @@ void Obstacle::movement()
     }
 }
 
+void Obstacle::CheckObstacleBallCollision(Ball &ball)
+{
+    if (CheckCollisionCircleRec(Vector2{ball.GetX(), ball.GetY()}, ball.GetRadius(), Rectangle{this->x, this->y, width, height}))
+        {
+            ball.ReverseSpeedX();
+        }
+}
 
-void Obstacle::update()
+void Obstacle::update(Ball& ball)
 {
     this->movement();
+    CheckObstacleBallCollision(ball);
 }

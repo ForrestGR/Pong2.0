@@ -1,26 +1,25 @@
 #pragma once
 
+#include "Ball.h"
+
 class Paddle
 {
 private:
-    // //Variables
-    // float x, y;
-    // float width, height;
-    // float speed;
+
+protected:
+    //Variables
+    float x, y;
+    float width, height;
+    float speed;
 
     //Private Functions
     void initVariables();
     void initShape();
 
 public:
-    //Variables
-    float x, y;
-    float width, height;
-    float speed;
-
     //Constructor & Destructor
     Paddle();
-    ~Paddle();
+    virtual ~Paddle();
 
     //Accessors
 
@@ -28,7 +27,9 @@ public:
     void KeyBoardInputMovement();
     void LimitMovement();
 
-    void Update();
+    void CheckPlayerBallCollision(Ball& ball);
+
+    virtual void Update(Ball& ball);
     void Render();
 
 
