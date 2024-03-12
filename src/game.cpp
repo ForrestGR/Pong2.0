@@ -1,9 +1,10 @@
 #include <raylib.h>
 
 #include "game.h"
-#include "ball.h"
-#include "Paddle.h"
-#include "CpuPaddle.h"
+// #include "Ball.h"
+// #include "Paddle.h"
+// #include "CpuPaddle.h"
+// #include "GameUi.h"
 
 
 // Private Functions
@@ -25,6 +26,7 @@ void Game::initWindow()
 Game::Game()
 {
     // this->initWindow();
+    this->ball.setGameUi(&this->gameUi);
 }
 
 Game::~Game()
@@ -52,6 +54,7 @@ void Game::update()
     this->player.Update(ball);
     this->cpu.Update(ball);
     this->obstacle.update(ball);
+    this->gameUi.Update();
 }
 
 void Game::render()
@@ -63,4 +66,9 @@ void Game::render()
     this->player.Render();
     this->cpu.Render();
     this->obstacle.Render();
+    this->gameUi.Render();
 }
+
+
+
+

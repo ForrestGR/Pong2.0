@@ -3,6 +3,7 @@
 #include "Obstacle.h"
 
 
+
 //Private Functions
 void Obstacle::initVariable()
 {

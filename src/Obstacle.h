@@ -15,6 +15,15 @@ public:
     Obstacle();
     ~Obstacle();
 
+
+    //Accessors / Getter 
+    // float getY() const { return y; };
+    // float getHeight() const { return height; };
+    // float getSpeed() const { return speed; };
+
+    //Modifiers / Setter
+
+
     //Functions
     void movement();
 

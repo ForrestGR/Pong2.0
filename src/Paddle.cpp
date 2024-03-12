@@ -73,7 +73,10 @@ void Paddle::LimitMovement()
 
 void Paddle::CheckPlayerBallCollision(Ball& ball)
 {
-    if (CheckCollisionCircleRec(Vector2{ball.GetX(), ball.GetY()}, ball.GetRadius(), Rectangle{x, y, width, height}))
+    float futureBallX = ball.GetX() + ball.GetSpeedX();
+    float futureBallY = ball.GetY() + ball.GetSpeedY();
+
+    if (CheckCollisionCircleRec(Vector2{futureBallX, futureBallY}, ball.GetRadius(), Rectangle{x, y, width, height}))
     {
         ball.ReverseSpeedX();
     }

@@ -5,7 +5,6 @@
 class CpuPaddle : public Paddle
 {
 private:
-
     //Private Functions
     void initVariables();
 

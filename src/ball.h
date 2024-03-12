@@ -1,5 +1,9 @@
 #pragma once
 
+
+class GameUi;
+
+
 class Ball
 {
 private:
@@ -9,6 +13,9 @@ private:
     float movementSpeed_x;
     float movementSpeed_y;
     float radius;
+
+    //Pointer
+    GameUi* gameUi;
 
     //Private Functions
     void initVariables();
@@ -28,6 +35,7 @@ public:
 
     //Modifiers / Setter
     void ReverseSpeedX() { movementSpeed_x = -movementSpeed_x; }
+    void setGameUi(GameUi* ui);
 
     //Functions
     void collision();
@@ -35,8 +43,12 @@ public:
     void Resetball();
 
     void kickdown();
+    void SpeedIncreaseOverTime();
 
     void Update();
     void Render();
 
 };
+
+
+

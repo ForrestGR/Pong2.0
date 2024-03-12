@@ -4,6 +4,7 @@
 #include "Paddle.h"
 #include "CpuPaddle.h"
 #include "Obstacle.h"
+#include "GameUi.h"
 
 class Game
 {
@@ -17,6 +18,7 @@ private:
     Paddle player;
     CpuPaddle cpu;
     Obstacle obstacle;
+    GameUi gameUi;
 
     //Private Functions
     void initVariables();
@@ -38,8 +40,7 @@ public:
 
     void update();
     void render();
-
-
-
-
 };
+
+
+

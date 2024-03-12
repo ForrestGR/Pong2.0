@@ -1,6 +1,7 @@
 #include <raylib.h>
 
 #include "Ball.h"
+#include "GameUi.h"
 
 
 //Variables
@@ -20,7 +21,7 @@ void Ball::initShape()
 
 
 //Constructor & Destructor
-Ball::Ball()
+Ball::Ball() : gameUi(nullptr)
 {
     initVariables();
     initShape();
@@ -31,7 +32,11 @@ Ball::~Ball()
 }
 
 
-//Accessors
+//Modifiers / Setter
+void Ball::setGameUi(GameUi * ui)
+{
+    gameUi = ui;
+}
 
 
 // Functions
@@ -44,10 +49,13 @@ void Ball::collision()
     //Collision Left
     if (x - radius <= 0)
     {
+        if(gameUi) gameUi->increasePlayerScore(1);
         Resetball();
+
     //Collision Right
     } else if (x + radius >= GetScreenWidth())
     {
+        if(gameUi) gameUi->increaseCpuScore(1);
         Resetball();
     }
 }
@@ -58,10 +66,15 @@ void Ball::movement()
     y += movementSpeed_y;
 }
 
+
 void Ball::Resetball()
 {
     x = GetScreenWidth() / 2;
     y = GetScreenHeight() / 2;
+
+    int speed_choices[2] = {-1, 1};
+    movementSpeed_x *= speed_choices[GetRandomValue(0, 1)];
+    movementSpeed_y *= speed_choices[GetRandomValue(0, 1)];
 }
 
 void Ball::kickdown()
@@ -76,6 +89,20 @@ void Ball::kickdown()
     }
 }
 
+void Ball::SpeedIncreaseOverTime()
+{
+    //// Prüfen, ob seit der letzten Geschwindigkeitserhöhung mindestens 3 Sekunden vergangen sind
+    // if (GetTime() - timeSinceLastIncreasedSpeed >= 30)
+    // {
+    //     // Geschwindigkeit erhöhen
+    //     speed_x *= 2;
+    //     speed_y *= 2;
+        
+    //     // Aktualisieren der Zeit seit der letzten Geschwindigkeitserhöhung
+    //     timeSinceLastIncreasedSpeed = GetTime();
+    // }
+}
+
 void Ball::Update()
 {
 
@@ -83,6 +110,7 @@ void Ball::Update()
     this->collision();
 
     this->kickdown();
+    this->SpeedIncreaseOverTime();
 
 
 }
@@ -91,3 +119,5 @@ void Ball::Render()
 {
     DrawCircle(x, y, radius, WHITE);
 }
+
+

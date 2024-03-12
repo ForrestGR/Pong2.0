@@ -31,6 +31,4 @@ public:
 
     virtual void Update(Ball& ball);
     void Render();
-
-
 };
