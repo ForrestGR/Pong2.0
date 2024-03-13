@@ -7,11 +7,12 @@
 //Variables
 void Ball::initVariables()
 {
-    this->x = GetScreenWidth()/2;
-    this->y = GetScreenHeight()/2;
-    movementSpeed_x = 4.f;
-    movementSpeed_y = 4.f;
-    radius = 15.f;
+    this-> x = GetScreenWidth()/2;
+    this-> y = GetScreenHeight()/2;
+    this-> movementSpeed_x = 4.f;
+    this-> movementSpeed_y = 4.f;
+    this-> radius = 15.f;
+    this-> timeSinceLastIncreased = 0;
 }
 
 void Ball::initShape()
@@ -91,16 +92,13 @@ void Ball::kickdown()
 
 void Ball::SpeedIncreaseOverTime()
 {
-    //// Prüfen, ob seit der letzten Geschwindigkeitserhöhung mindestens 3 Sekunden vergangen sind
-    // if (GetTime() - timeSinceLastIncreasedSpeed >= 30)
-    // {
-    //     // Geschwindigkeit erhöhen
-    //     speed_x *= 2;
-    //     speed_y *= 2;
-        
-    //     // Aktualisieren der Zeit seit der letzten Geschwindigkeitserhöhung
-    //     timeSinceLastIncreasedSpeed = GetTime();
-    // }
+    if (GetTime() - timeSinceLastIncreased >= 30)
+    {
+        movementSpeed_x*= 2;
+        movementSpeed_y *= 2;
+    
+        timeSinceLastIncreased = GetTime();
+    }
 }
 
 void Ball::Update()
@@ -111,8 +109,6 @@ void Ball::Update()
 
     this->kickdown();
     this->SpeedIncreaseOverTime();
-
-
 }
 
 void Ball::Render()

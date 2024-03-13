@@ -26,7 +26,6 @@ void Game::initWindow()
 Game::Game()
 {
     // this->initWindow();
-    this->ball.setGameUi(&this->gameUi);
 }
 
 Game::~Game()

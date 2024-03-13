@@ -13,6 +13,7 @@ private:
     float movementSpeed_x;
     float movementSpeed_y;
     float radius;
+    float timeSinceLastIncreased;
 
     //Pointer
     GameUi* gameUi;
