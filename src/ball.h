@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Obstacle.h"
 
 class GameUi;
 

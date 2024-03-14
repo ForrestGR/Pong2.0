@@ -15,7 +15,7 @@ void CpuPaddle::initVariables()
 }
 
 // Constructor & Destructor
-CpuPaddle::CpuPaddle() : Paddle()
+CpuPaddle::CpuPaddle(/*GameLogic& gameLogic*/) : Paddle() /*, gameLogic(gameLogic)*/ //Initialisieren der gameLogic-Referenz
 {
     this->initVariables();
 }
@@ -28,7 +28,7 @@ CpuPaddle::~CpuPaddle()
 // Functions
 void CpuPaddle::CpuAi(float ball_y)
 {
-    if (ball_y >= y + height*3/4)
+    if (/*gameLogic.getLastHit() == PLAYER &&*/ ball_y >= y + height*3/4)
     {
         y += speed;
     } else if (ball_y < y + height*1/4)
@@ -48,10 +48,10 @@ void CpuPaddle::CheckCpuBallCollision(Ball& ball)
 
 
 
-void CpuPaddle::Update(Ball& ball)
+void CpuPaddle::Update(Ball& ball/*, const GameLogic& gameLogic*/)
 {
     this->CpuAi(ball.GetY());
-    LimitMovement();
+    this->LimitMovement();
 
     CheckCpuBallCollision(ball);
 }
@@ -59,3 +59,5 @@ void CpuPaddle::Update(Ball& ball)
 // void CpuPaddle::Render()
 // {
 // }
+
+

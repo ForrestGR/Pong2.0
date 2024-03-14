@@ -50,13 +50,13 @@ void Ball::collision()
     //Collision Left
     if (x - radius <= 0)
     {
-        if(gameUi) gameUi->increasePlayerScore(1);
+        (*gameUi).increasePlayerScore(1);
         Resetball();
 
     //Collision Right
     } else if (x + radius >= GetScreenWidth())
     {
-        if(gameUi) gameUi->increaseCpuScore(1);
+        gameUi->increaseCpuScore(1);
         Resetball();
     }
 }

@@ -26,17 +26,20 @@ GameUi::~GameUi()
 // Functions
 void GameUi::increasePlayerScore(int score)
 {
-
+   player_score += score;
 }
 
 void GameUi::increaseCpuScore(int score)
 {
-
+    cpu_score += score;
 }
 
 
 void GameUi::Update()
 {
+    increasePlayerScore(score);
+    increaseCpuScore(score);
+
 }
 
 void GameUi::Render()

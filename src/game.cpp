@@ -51,7 +51,7 @@ void Game::update()
 {
     this->ball.Update();
     this->player.Update(ball);
-    this->cpu.Update(ball);
+    this->cpupaddle.Update(ball);
     this->obstacle.update(ball);
     this->gameUi.Update();
 }
@@ -63,7 +63,7 @@ void Game::render()
 
     this->ball.Render();
     this->player.Render();
-    this->cpu.Render();
+    this->cpupaddle.Render();
     this->obstacle.Render();
     this->gameUi.Render();
 }

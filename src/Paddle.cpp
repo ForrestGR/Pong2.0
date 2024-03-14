@@ -94,3 +94,4 @@ void Paddle::Render()
 {
     DrawRectangle(static_cast<int>(x), static_cast<int>(y), static_cast<int>(width), static_cast<int>(height), WHITE);
 }
+

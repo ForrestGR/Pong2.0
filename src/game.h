@@ -16,9 +16,10 @@ private:
     //Objects
     Ball ball;
     Paddle player;
-    CpuPaddle cpu;
+    CpuPaddle cpupaddle;
     Obstacle obstacle;
     GameUi gameUi;
+    //GameLogic gamelogic;
 
     //Private Functions
     void initVariables();

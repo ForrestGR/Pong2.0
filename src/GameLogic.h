@@ -1,6 +1,9 @@
 #pragma once
 
 
+
+
+
 class GameLogic
 {
 private:
@@ -14,16 +17,29 @@ private:
     PaddleOwner lastHit;
 
 public:
-    GameLogic() : lastHit(NONE) {}
-
-    void setLastHit(PaddleOwner owner)
-    {
-        lastHit = owner;
-    }
-
-    PaddleOwner getLastHit() const
-    {
-        return lastHit;
-    }
+    GameLogic();
+    void setLastHit(PaddleOwner owner);
+    PaddleOwner getLastHit() const;
 
 };
+
+
+// #ifndef GAME_H
+// #define GAME_H
+
+// #include "ball.h"
+// #include "paddle.h"
+// #include "cpupaddle.h"
+
+
+// enum PaddleOwner
+// {
+//     NONE,
+//     PLAYER,
+//     CPU
+// };
+
+// extern PaddleOwner lastHit;
+
+
+// #endif

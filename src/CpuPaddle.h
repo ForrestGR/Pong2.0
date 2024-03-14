@@ -2,15 +2,19 @@
 
 #include "Paddle.h"
 
+
 class CpuPaddle : public Paddle
 {
-private:
+public:
+    //Referenzen / Pointer
+    //GameLogic& gameLogic;
+
     //Private Functions
     void initVariables();
 
-public:
+
     //Constructor & Destructor
-    CpuPaddle();
+    CpuPaddle(/*GameLogic& gameLogic*/);
     ~CpuPaddle();
 
     //Accessors
@@ -20,6 +24,9 @@ public:
 
     void CheckCpuBallCollision(Ball& ball);
 
-    void Update(Ball& ball) override;
+    void Update(Ball& ball/*, const GameLogic& gameLogic*/) override;
     // void Render();
 };
+
+
+
